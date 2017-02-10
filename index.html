@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Student Progress Tool</title>
+  
+  
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  <div class="container">
+  <div>
+    <label for="date">Date</label>
+    <input type="date" class='date-input' name="date">
+  </div>
+  <div>
+    <label for="grade">GPA</label>
+    <input type="number" class='grade-input' name="grade" step=0.01 value=0>
+    <button class="grade-bumper" data-increment=-0.08>-3 h</button>
+    <button class="grade-bumper" data-increment=-0.17>-2 h</button>
+    <button class="grade-bumper" data-increment=-0.26>-1 h</button>
+    <button class="grade-bumper" data-increment=0.08>+1 h</button>
+    <button class="grade-bumper" data-increment=0.17>+2 h</button>
+    <button class="grade-bumper" data-increment=0.26>+3 h</button>
+  </div>
+  <hr>
+  <div class="date-bar progress-outer">
+    <div class="progress-inner"></div>
+    <div class="annotations">
+      <span>May 5</span>
+      <span>Jan 9</span>
+    </div>
+  </div>
+  <div class="grade-bar progress-outer">
+    <div class="progress-inner"></div>
+    <div class="markers">
+      <span>1.0</span>
+      <span>2.0</span>
+      <span>3.0</span>
+    </div>
+  </div>
+</div>
+  
+    <script src="js/index.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+body {
+  color: #555;
+}
+
+button {
+  position: relative;
+  top: 1px;
+  padding: 0 20px;
+}
+
+input[type="date"] {
+    height: 38px;
+    padding: 6px 10px;
+    background-color: #fff;
+    border: 1px solid #D1D1D1;
+    border-radius: 4px;
+    box-shadow: none;
+    box-sizing: border-box;
+}
+
+.progress-outer {
+  border: 1px solid #ccc;
+  margin: 4px 0;
+  position: relative;
+}
+.progress-inner {
+  height: 40px;
+}
+
+.date-bar .progress-inner {
+  background: #8fbadd;
+  width: 30%;
+}
+
+.grade-bar .progress-inner {
+  background: #9fddaa;
+  width: 60%;
+}
+
+.grade-bar span {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-left: 1px solid rgba(0,0,0,0.15);
+  padding: 9px;
+  color: rgba(0,0,0,0.6);
+}
+
+.date-bar .annotations span {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  padding: 8px;
+  color: rgba(0,0,0,0.6)
+}
+
+.date-bar .annotations span:nth-child(1) {
+  left: 5px;
+}
+.date-bar .annotations span:nth-child(2) {
+  right: 5px;
+}
+
+.grade-bar .markers span:nth-child(1) {
+  left: 25%;
+}
+.grade-bar .markers span:nth-child(2) {
+  left: 50%;
+}
+.grade-bar .markers span:nth-child(3) {
+  left: 75%;
+}
