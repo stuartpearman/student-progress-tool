@@ -2,6 +2,15 @@ body {
   color: #555;
 }
 
+h1 {
+  font-family: helvetica, sans-serif;
+  font-weight: 100;
+  border-bottom: 1px solid #ddd;
+  padding: 50px 0 20px 0;
+  margin-bottom: 40px;
+  text-align: left;
+}
+
 button {
   position: relative;
   top: 1px;
@@ -23,8 +32,9 @@ input[type="date"] {
   margin: 4px 0;
   position: relative;
 }
-.progress-inner {
+.progress-inner, .projected-grade {
   height: 40px;
+  width: 0;
 }
 
 .date-bar .progress-inner {
@@ -34,7 +44,15 @@ input[type="date"] {
 
 .grade-bar .progress-inner {
   background: #9fddaa;
-  width: 60%;
+}
+
+.projected-grade {
+  background: #333;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  background: #9FDDAA;
+  opacity: 0.4;
 }
 
 .grade-bar span {
