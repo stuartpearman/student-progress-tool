@@ -1,54 +1,94 @@
 <!DOCTYPE html>
-<html >
+<html>
 <head>
   <meta charset="UTF-8">
   <title>Student Progress Tool</title>
-  
-  
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css'>
-
-      <link rel="stylesheet" href="css/style.css">
-
-  
+  <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-  <div class="container">
-  <h1>MI449 Progress Buddy</h1>
-  <div>
-    <label for="date">Date</label>
-    <input type="date" class='date-input' name="date">
-  </div>
-  <div>
-    <label for="grade">GPA</label>
-    <input type="number" class='grade-input' name="grade" step=0.01 value=0>
-    <button class="grade-bumper" data-increment=-0.08>-3 h</button>
-    <button class="grade-bumper" data-increment=-0.17>-2 h</button>
-    <button class="grade-bumper" data-increment=-0.26>-1 h</button>
-    <button class="grade-bumper" data-increment=0.08>+1 h</button>
-    <button class="grade-bumper" data-increment=0.17>+2 h</button>
-    <button class="grade-bumper" data-increment=0.26>+3 h</button>
-  </div>
-  <hr>
-  <div class="date-bar progress-outer">
-    <div class="progress-inner"></div>
-    <div class="annotations">
-      <span>May 5</span>
-      <span>Jan 9</span>
+  <div class="progress-container">
+    <div class="container">
+      <div class="date-bar progress-outer">
+        <div class="progress-inner"></div>
+        <div class="annotations">
+          <span>Jan 9</span>
+          <span>May 5</span>
+        </div>
+      </div>
+      <div class="grade-bar progress-outer">
+        <div class="progress-inner"></div>
+        <div class="projected-grade"></div>
+        <div class="markers">
+          <span>1.0</span>
+          <span>1.5</span>
+          <span>2.0</span>
+          <span>2.5</span>
+          <span>3.0</span>
+          <span>3.5</span>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="grade-bar progress-outer">
-    <div class="progress-inner"></div>
-    <div class="projected-grade"></div>
-    <div class="markers">
-      <span>1.0</span>
-      <span>2.0</span>
-      <span>3.0</span>
-    </div>
-  </div>
-</div>
-  
-    <script src="js/index.js"></script>
-
+  <main class="container main">
+    <section class="controls four columns u-pull-right">
+      <h2>Controls</h2>
+      <p>Use the controls to get an idea of the pace you want to take on as you work through the lessons. Tweak the date and your GPA to see changes in your projected grade.</p>
+      <div class="form-group">
+        <label for="date" title="Change to see projected grade for different dates in the semester">Date</label>
+        <input type="date" class='date-input' name="date">
+      </div>
+      <div class="form-group">
+        <label for="grade">GPA</label>
+        <input type="number" class="grade-input" name="grade" step=0.01 value=0>
+      </div>
+      <label>Grade Controls</label>
+      <div class="button-group">
+        <button class="grade-bumper" data-increment=0.08>+1 </button>
+        <button class="grade-bumper" data-increment=0.17>+2 </button>
+        <button class="grade-bumper" data-increment=0.26>+3 </button>
+      </div>
+      <div class="button-group">
+        <button class="grade-bumper" data-increment=-0.08>-1 </button>
+        <button class="grade-bumper" data-increment=-0.17>-2 </button>
+        <button class="grade-bumper" data-increment=-0.26>-3 </button>
+      </div>
+    </section>
+    <section class="lessons eight columns u-pull-left">
+      <h2>Lesson Planner <small>drag lessons / click to toggle</small></h2>
+      <p>Use the lesson planner to plan out your workload. Create new lists to set up a schedule for yourself, and move lessons between them to set goals.</p>
+      <form id="newBucket">
+        <input type="text" name="bucketName" class="bucket-input" placeholder="enter bucket heading"><button class="bucket-btn">Add List +</button>
+      </form>
+      <div class="lesson-map">
+        <section class="done">
+          <header>
+            <h3>Completed Lessons</h3>
+            <button data-shift="up" class="bucket-shift"></button>
+            <button data-shift="down" class="bucket-shift"></button>
+          </header>
+        </section>
+        <section class="sample">
+          <header>
+            <h3>This Week</h3>
+            <button data-shift="up" class="bucket-shift"></button>
+            <button data-shift="down" class="bucket-shift"></button>
+            <button data-shift="delete" class="bucket-shift"></button>
+          </header>
+        </section>
+        <section class="unsorted">
+          <header>
+            <h3>To Do</h3>
+            <button data-shift="up" class="bucket-shift"></button>
+            <button data-shift="down" class="bucket-shift"></button>
+          </header>
+        </section>
+      </div>
+    </section>
+  </main>
+  <script type="text/javascript" src="js/sortable.min.js"></script>
+  <script type="text/javascript" src="js/data.js"></script>
+  <script src="js/index.js"></script>
 </body>
 </html>

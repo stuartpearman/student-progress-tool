@@ -1,14 +1,64 @@
+/* HELPERS */
+
+.well {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.m-r {
+  margin-right: 10px;
+}
+
+.b-r {
+  margin-right: 20px;
+  padding-right: 24px;
+  border-right: 1px solid #eee;
+}
+
+small {
+  font-size: 0.65em;
+  color: #888;
+}
+
+/* BASE */
+
+main.main {
+  margin-top: 150px;
+}
+
+html {
+  font-family: avenir, helvetica, arial, sans-serif;
+}
+
 body {
   color: #555;
+  margin: 0;
 }
 
 h1 {
-  font-family: helvetica, sans-serif;
-  font-weight: 100;
-  border-bottom: 1px solid #ddd;
-  padding: 50px 0 20px 0;
-  margin-bottom: 40px;
+  font-weight: 500;
+  font-size: 2em;
   text-align: left;
+  margin: 30px 0;
+  margin-top: 0;
+}
+
+h2 {
+  margin-bottom: 24px;
+  font-size: 2.3em;
+}
+
+h3 {
+  font-size: 1.6em;
 }
 
 button {
@@ -27,11 +77,41 @@ input[type="date"] {
     box-sizing: border-box;
 }
 
+.form-group input {
+  margin-bottom: 0;
+}
+
+/* Element styles */
+
+section.lessons {
+  margin-left: 0;
+  margin-right: 4%;
+}
+
+.controls {
+  border: 1px solid #eee;
+  padding: 15px;
+}
+
+.progress-container {
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 15px 30px 15px 30px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ccc;
+}
+
 .progress-outer {
   border: 1px solid #ccc;
   margin: 4px 0;
   position: relative;
 }
+
 .progress-inner, .projected-grade {
   height: 40px;
   width: 0;
@@ -39,11 +119,12 @@ input[type="date"] {
 
 .date-bar .progress-inner {
   background: #8fbadd;
-  width: 30%;
+  transition: width 0.3s;
 }
 
 .grade-bar .progress-inner {
   background: #9fddaa;
+  transition: width 0.3s;
 }
 
 .projected-grade {
@@ -53,6 +134,7 @@ input[type="date"] {
   z-index: -1;
   background: #9FDDAA;
   opacity: 0.4;
+  transition: width 0.3s;
 }
 
 .grade-bar span {
@@ -72,19 +154,125 @@ input[type="date"] {
   color: rgba(0,0,0,0.6)
 }
 
-.date-bar .annotations span:nth-child(1) {
-  left: 5px;
+.date-bar .annotations span:nth-child(1) { left: 5px; }
+.date-bar .annotations span:nth-child(2) { right: 5px; }
+
+.grade-bar .markers span:nth-child(1) { left: 25%; }
+.grade-bar .markers span:nth-child(2) { left: 37.5%; }
+.grade-bar .markers span:nth-child(3) { left: 50%; }
+.grade-bar .markers span:nth-child(4) { left: 62.5%; }
+.grade-bar .markers span:nth-child(5) { left: 75%; }
+.grade-bar .markers span:nth-child(6) { left: 87.5%; }
+
+.button-group {
+  clear: both;
+  margin: 10px 0 12px 0;
+  overflow: hidden;
 }
-.date-bar .annotations span:nth-child(2) {
-  right: 5px;
+.grade-bumper:after {
+  font-family: "fontawesome";
+  content: "\f017";
+}
+.grade-bumper {
+  border-radius: 0;
+  float: left;
+  line-height: 0;
+  padding: 13px;
+  height: 30px;
+  margin-bottom: 1px;
+}
+.grade-bumper:first-child {
+  border-radius: 4px 0 0 4px;
+  border-right: 0;
+}
+.grade-bumper:last-child {
+  border-radius: 0 4px 4px 0;
+  border-left: 0;
 }
 
-.grade-bar .markers span:nth-child(1) {
-  left: 25%;
+.bucket-btn {
+  border-radius: 0 4px 4px 0;
+  background: #b3e4bc;
 }
-.grade-bar .markers span:nth-child(2) {
-  left: 50%;
+
+input.bucket-input {
+  border-radius: 4px 0 0 4px;
+  border-right: 0;
 }
-.grade-bar .markers span:nth-child(3) {
-  left: 75%;
+
+.bucket-shift {
+  padding: 0 10px;
+  background: #fff;
+  border-radius: 4px;
+  border: 2px solid #eee;
+  position: relative;
+  font-family: "fontawesome"
+}
+
+.bucket-shift[data-shift="up"]:before {
+  content: "\f0d8";
+}
+
+.bucket-shift[data-shift="down"]:before {
+  content: "\f0d7";
+}
+
+.bucket-shift[data-shift="delete"]:before {
+  content: "\f00d"
+}
+
+.lesson-map {
+  overflow: hidden;
+}
+
+.lesson-map section {
+  text-align: center;
+  list-style: none;
+  padding: 20px;
+  padding-top: 0;
+  border: 3px solid #eee;
+  border-bottom: 0;
+  border-radius: 5px;
+  margin-top: 30px;
+}
+
+.lesson-map header {
+  position: relative;
+    bottom: 19px;
+}
+
+.lesson-map section h3 {
+    display: inline-block;
+    margin: 0px;
+    background: #fff;
+    padding: 0 30px;
+}
+
+.lessons--item {
+  text-align: left;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 2px;
+  padding: 4px 0;
+  overflow: hidden;
+  cursor: move;
+  background: #fff;
+}
+
+.lessons--item[data-completed="true"] {
+  background: #daf2de;
+}
+
+.lessons--item .gradepoint {
+  padding: 8px;
+  /*background: #c5dbed;*/
+  background: #fafafa;
+  border-right: 1px solid #ccc;
+  margin-right: 4px;
+}
+
+.lessons--item .gradepoint:before {
+  font-family: "fontawesome";
+  content: "\f19d";
+  margin-right: 4px;
 }
